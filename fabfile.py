@@ -1,4 +1,4 @@
-from fabric.api import local,settings,run, abort
+from fabric.api import local,settings,run, abort,cd
 from fabric.contrib.console import confirm
 
 def test():
@@ -10,5 +10,5 @@ def test():
 def deploy():
     code_dir = '/Users/rene/python/mysite'
     with cd(code_dir):
-        run("git pull")
-        run("touch app.wsgi")
+        local("git pull")
+        local("touch app.wsgi")
